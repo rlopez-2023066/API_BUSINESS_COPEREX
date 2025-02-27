@@ -1,0 +1,22 @@
+LOGIN ✅
+REGISTER ✅
+
+Category
+Model ✅
+Controller ✅
+Routes
+
+Company
+Model ✅
+Controller
+Routes
+
+User
+Model ✅
+Controller
+Routes
+
+Excel
+Controller
+
+Validaciones 
