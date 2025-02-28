@@ -19,6 +19,16 @@ export const existEmail = async(email, user)=>{
     }
 }
 
+export const existCompany = async(name, company ) => {
+    const alreadyCompany = await company.findOne({name})
+    if(alreadyCompany && alreadyCompany._id != company.id){
+        console.error(`Company ${name} is already taken`)
+        throw new Error(`Company ${name} is already taken`)
+    }
+}
+
+
+
 
 
 
@@ -45,3 +55,4 @@ export const findUser = async(id)=>{
         return false
     }
 }
+
