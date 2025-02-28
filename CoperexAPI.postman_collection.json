@@ -1,0 +1,367 @@
+{
+	"info": {
+		"_postman_id": "60c2fdd2-bca9-4e83-a947-58d2c29aa19f",
+		"name": "CoperexAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37956967"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Alfredo",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Lopez",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "alopez",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "alopez@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "alfredo88917",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:2007/register",
+							"host": [
+								"localhost"
+							],
+							"port": "2007",
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody)\r",
+									"postman.setGlobalVariable('token',data.token)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "userLogin",
+									"value": "alopez",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "alfredo88917",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:2007/login",
+							"host": [
+								"localhost"
+							],
+							"port": "2007",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Company",
+			"item": [
+				{
+					"name": "Types-List",
+					"item": [
+						{
+							"name": "listCompanyYearAZ",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:2007/company/listCompanyYear/5",
+									"host": [
+										"localhost"
+									],
+									"port": "2007",
+									"path": [
+										"company",
+										"listCompanyYear",
+										"5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "listCompanyCategory",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:2007/company/listCompanyCata/Maquila",
+									"host": [
+										"localhost"
+									],
+									"port": "2007",
+									"path": [
+										"company",
+										"listCompanyCata",
+										"Maquila"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "listCompanyAZ",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:2007/company/listCompanyAZ",
+									"host": [
+										"localhost"
+									],
+									"port": "2007",
+									"path": [
+										"company",
+										"listCompanyAZ"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "listCompanyZA",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:2007/company/listCompanyZA",
+									"host": [
+										"localhost"
+									],
+									"port": "2007",
+									"path": [
+										"company",
+										"listCompanyZA"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "addCompany",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "TreFratelli",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "Carretera al Salvador",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "45410236",
+									"type": "text"
+								},
+								{
+									"key": "yearExperience",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "impactLevel",
+									"value": "Mediana",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "Restaurante",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:2007/company/addCompany",
+							"host": [
+								"localhost"
+							],
+							"port": "2007",
+							"path": [
+								"company",
+								"addCompany"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listCompany",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:2007/company/listCompany",
+							"host": [
+								"localhost"
+							],
+							"port": "2007",
+							"path": [
+								"company",
+								"listCompany"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCompany",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Hoosier Manufacturing",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "Carretera a Barcenas, Villa Nueva Zona 4",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "78451200",
+									"type": "text"
+								},
+								{
+									"key": "yearExperience",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "impactLevel",
+									"value": "Mediana",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "Maquila",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:2007/company/updateCompany/67c135fc34134446481cb5ef",
+							"host": [
+								"localhost"
+							],
+							"port": "2007",
+							"path": [
+								"company",
+								"updateCompany",
+								"67c135fc34134446481cb5ef"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
