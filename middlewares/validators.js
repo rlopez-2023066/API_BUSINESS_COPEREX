@@ -1,8 +1,8 @@
-/*
+
 //Validar campos en las rutas
 import { body } from "express-validator"
 import { validateErrors, validateErrorsWithoutFiles } from "./validate.errors.js"
-import { existEmail, existUsername, notRequiredField,  } from "../utils/db.validators.js"
+import { existEmail, existUsername, existCompany,  } from "../utils/db.validators.js"
 
 //Arreglo de validaciones (por cada ruta)
 export const registerValidator = [
@@ -27,11 +27,24 @@ export const registerValidator = [
         .withMessage('Password must be strong')
         .isLength({min: 8})
         .withMessage('Password need min characters'),
+    validateErrors
+]
+
+export const companyValidator = [
+    body('name', 'Name cannot be empty')
+    .notEmpty()
+    .custom(existCompany),
+    body('address', 'Address cannot be empty')
+    .notEmpty(),
     body('phone', 'Phone cannot be empty')
-        .notEmpty()
-        .isMobilePhone(),
+    .notEmpty(),
+    body('yearExperience', 'Year experience cannot be empty')
+    .notEmpty(),
+    body('impactLevel', 'Impact level cannot be empty')
+    .notEmpty(),
+    body('category', 'Category cannot be empty')
+    .notEmpty(),
     validateErrors
 ]
 
 
-*/
