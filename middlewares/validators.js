@@ -33,25 +33,5 @@ export const registerValidator = [
     validateErrors
 ]
 
-export const updateUserValidator = [
-    body('username')
-        .optional() //Parámetro opcional, puede llegar como no puede llegar
-        .notEmpty()
-        .toLowerCase()
-        .custom((username, { req })=> existUsername(username, req.user)),
-    body('email')
-        .optional()
-        .notEmpty()
-        .isEmail()
-        .custom((email, {req})=> existEmail(email, req.user)),
-    body('password')
-        .optional()
-        .notEmpty()
-        .custom(notRequiredField),
-    body('role')
-        .optional()
-        .notEmpty()
-        .custom(notRequiredField),
-    validateErrorsWithoutFiles 
-]
+
 */

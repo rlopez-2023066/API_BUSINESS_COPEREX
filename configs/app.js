@@ -8,6 +8,10 @@ import cors from 'cors' //Acceso al API
 import {limiter} from '../middlewares/rate.limit.js'
 
 
+import authRoutes from '../src/auth/auth.routes.js'
+import companyRoutes from '../src/company/company.routes.js'
+ 
+
 const configs = (app)=> {
     app.use(express.json()) 
     app.use(express.urlencoded({extended: false})) 
@@ -18,7 +22,8 @@ const configs = (app)=> {
 }
 
 const routes = (app)=> {
-   
+    app.use(authRoutes)
+    app.use('/company', companyRoutes)
 }
 
 export const initServer = ()=> {

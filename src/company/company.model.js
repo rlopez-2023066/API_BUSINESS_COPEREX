@@ -26,14 +26,13 @@ const companySchema = new Schema(
         },
 
         impactLevel: {
-            type: Number,
+            type: String,
             required: [true, 'Impact level is required'],
         },
 
         category: {
-            type: Schema.Types.ObjectId,
-            ref: 'category',
-            required: true
+            type: String,
+            required: [true, 'Category is required']
         }
     }
 )

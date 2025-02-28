@@ -4,17 +4,15 @@ REGISTER ✅
 Category
 Model ✅
 Controller ✅
-Routes
+Routes ✅
 
 Company
 Model ✅
-Controller
-Routes
+Controller✅
+Routes ✅
 
 User
 Model ✅
-Controller
-Routes
 
 Excel
 Controller
